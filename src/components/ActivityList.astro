@@ -6,11 +6,17 @@ import Gallery from './Gallery.astro';
 const allActivities = (await getCollection('activities')).sort(
 	(a, b) => b.data.year - a.data.year
 );
+
+const latestYear = allActivities[0]?.data.year;
+const earliestYear = allActivities[allActivities.length - 1]?.data.year;
 ---
 
 <section class="activities-section section">
   <div class="container">
-    <h2 class="section-title">Activity Timeline</h2>
+    <h2 class="section-title">
+      Activity Timeline
+      <span class="timeline-period">({earliestYear}年 - {latestYear}年)</span>
+    </h2>
     
     <div class="timeline">
       {allActivities.map(async (activity) => {
@@ -163,6 +169,23 @@ const allActivities = (await getCollection('activities')).sort(
     color: var(--color-text);
     line-height: 1.8;
     font-size: 1.05rem;
+  }
+  
+  .timeline-period {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+  
+  @media (min-width: 768px) {
+    .timeline-period {
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 1rem;
+      font-size: 1.25rem;
+    }
   }
 
   .details-body {
