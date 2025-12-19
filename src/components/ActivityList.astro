@@ -1,0 +1,161 @@
+---
+import { getCollection } from 'astro:content';
+import Gallery from './Gallery.astro';
+
+// 年の降順で取得
+const allActivities = (await getCollection('activities')).sort(
+	(a, b) => b.data.year - a.data.year
+);
+---
+
+<section class="activities-section section">
+  <div class="container">
+    <h2 class="section-title">Activity Timeline</h2>
+    
+    <div class="timeline">
+      {allActivities.map(async (activity) => {
+        const { Content } = await activity.render();
+        return (
+          <article class="activity-card" id={`year-${activity.data.year}`}>
+            <div class="year-label">
+              <span class="year-number">{activity.data.year}</span>
+            </div>
+            
+            <div class="activity-content">
+              <div class="summary-box">
+                <h3 class="year-header">{activity.data.year} Summary</h3>
+                <p class="summary-text">{activity.data.summary}</p>
+              </div>
+
+              <!-- Gallery Component (Marquee UI preserved) -->
+              <Gallery year={activity.data.year} />
+
+              <div class="details-body">
+                <Content />
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Vertical Line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (min-width: 768px) {
+    .timeline::before {
+      left: -40px;
+    }
+  }
+
+  .activity-card {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    padding-left: 50px; /* Space for line */
+  }
+
+  @media (min-width: 768px) {
+    .activity-card {
+      padding-left: 0;
+    }
+  }
+
+  .year-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 42px;
+    height: 42px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  @media (min-width: 768px) {
+    .year-label {
+      left: -60px;
+    }
+  }
+
+  .year-number {
+    font-size: 0.9rem;
+    font-family: var(--font-heading);
+    color: white;
+  }
+
+  .summary-box {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-left: 4px solid var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-radius: 0 8px 8px 0;
+    background: #fff;
+  }
+
+  .year-header {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  .summary-text {
+    color: var(--color-text);
+    line-height: 1.8;
+  }
+
+  .details-body {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  /* Markdown Styles inside Activity */
+  .details-body :global(h4) {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    padding-bottom: 0.5rem;
+  }
+
+  .details-body :global(ul) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .details-body :global(li) {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+  }
+  
+  .details-body :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

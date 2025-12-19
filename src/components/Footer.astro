@@ -1,0 +1,19 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container text-center">
+    <p class="copyright">&copy; {currentYear} Sho Takahashi. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--spacing-lg) 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+</style>
