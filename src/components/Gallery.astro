@@ -81,9 +81,7 @@ if (images.length > 0) {
 {
   images.length > 0 && (
     <div class="gallery-container">
-      <h3 class="gallery-title">
-        {year} Gallery ({images.length} Photos)
-      </h3>
+      <h3 class="gallery-title">{year} Gallery</h3>
       <div class="marquee-wrapper">
         {lanes.map((laneImages, i) => (
           <div class={`marquee-lane lane-${i + 1}`}>

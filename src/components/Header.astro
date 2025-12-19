@@ -4,8 +4,12 @@
 
 <header class="header">
   <div class="container header-inner">
-    <a href={import.meta.env.BASE_URL} class="logo">Sho T Activity Portfolio</a>
-    {/* Navigation placeholder */}
+    <div class="logo-group">
+      <a href={import.meta.env.BASE_URL} class="logo">Sho T Lab.</a>
+      <span class="subtitle"
+        >iU情報経営イノベーション専門職大学 客員教授 活動実績</span
+      >
+    </div>
   </div>
 </header>
 
@@ -26,10 +30,51 @@
     justify-content: space-between;
   }
 
+  .logo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .logo-group {
+      flex-direction: row;
+      align-items: center; /* better alignment with border */
+      gap: 1.5rem; /* Increased spacing */
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      border-left: 1px solid var(--color-border); /* Subtle separator */
+      padding-left: 1.5rem; /* Space inside the separator */
+      line-height: 1;
+      height: 1em; /* Match line height for cleaner look */
+      display: flex;
+      align-items: center;
+    }
+  }
+
   .logo {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800; /* Bolder for the main brand */
     color: var(--color-primary);
     letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .subtitle {
+      font-size: 0.85rem;
+    }
   }
 </style>
