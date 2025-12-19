@@ -48,6 +48,7 @@
 - [x] GitHub Actions設定ファイルの作成 (.github/workflows/deploy.yml) <!-- id: 20 -->
 - [x] ビルド確認と修正 <!-- id: 21 -->
 - [x] 運用マニュアル(README.md)の整備 <!-- id: 22 -->
+- [x] GitHub Pages用パス設定(astro.config.mjs)の修正 <!-- id: 28 -->
 
 ### 5. 便利ツール (Utility)
 - [x] Mac用Applet(sho-iu-activity.app)の作成 <!-- id: 23 -->
