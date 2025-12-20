@@ -24,10 +24,26 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- OGP (Basic) -->
+    <!-- OGP (Social Media) -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta
+      property="og:image"
+      content={new URL("/sho-iu-activity/ogp.png", Astro.site ?? Astro.url)
+        .href}
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={new URL("/sho-iu-activity/ogp.png", Astro.site ?? Astro.url)
+        .href}
+    />
   </head>
   <body>
     <Header />

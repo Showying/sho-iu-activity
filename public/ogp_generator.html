@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>OGP Generator v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Noto+Sans+JP:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Reset & Variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary: #002B49;
+      --color-accent: #C4A77D;
+      --color-bg: #ffffff;
+      --color-bg-secondary: #f8f9fa;
+      --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+    }
+
+    body {
+      width: 1280px;
+      /* 16:9 720p width */
+      height: 720px;
+      /* 16:9 720p height */
+      background: linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg));
+      font-family: var(--font-sans);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Decorative Background Elements (Subtle) */
+    .bg-deco-1 {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(196, 167, 125, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .bg-deco-2 {
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 43, 73, 0.05) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      z-index: 10;
+      padding: 60px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* Profile Image Area */
+    .image-area {
+      flex-shrink: 0;
+    }
+
+    .profile-img {
+      width: 360px;
+      height: 360px;
+      object-fit: cover;
+      object-position: top center;
+      /* Fix face cutoff */
+      border-radius: 24px;
+      /* Matches Hero 12px scaled up */
+      box-shadow: 0 20px 60px rgba(0, 43, 73, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: white;
+    }
+
+    /* Text Area */
+    .text-area {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      align-self: flex-start;
+      letter-spacing: 0.05em;
+    }
+
+    .main-title {
+      font-size: 80px;
+      /* Reduced from 96px */
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5em;
+      letter-spacing: -0.02em;
+    }
+
+    .sub-title {
+      font-size: 32px;
+      font-weight: 500;
+      color: #555;
+      /* Slightly lighter for hierarchy */
+      line-height: 1.6;
+    }
+
+    .divider {
+      width: 100px;
+      height: 6px;
+      background-color: var(--color-accent);
+      margin: 30px 0;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-deco-1"></div>
+  <div class="bg-deco-2"></div>
+
+  <div class="container">
+    <div class="image-area">
+      <!-- Trying a different image if possible or ensuring positioning is top -->
+      <img src="images/profile/Sho T 14.png" alt="Sho T" class="profile-img">
+    </div>
+    <div class="text-area">
+      <div class="brand-tag">PORTFOLIO</div>
+      <h1 class="main-title">Sho T Lab.</h1>
+      <div class="divider"></div>
+      <p class="sub-title">
+        高橋 翔<br>
+        iU情報経営イノベーション専門職大学<br>
+        客員教授 活動実績
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

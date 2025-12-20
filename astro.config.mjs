@@ -9,4 +9,7 @@ const isBuild = process.argv.includes('build');
 export default defineConfig({
     site: 'https://Showying.github.io',
     base: isBuild ? '/sho-iu-activity' : '/',
+    devToolbar: {
+        enabled: false
+    }
 });

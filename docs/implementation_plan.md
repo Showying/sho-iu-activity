@@ -78,6 +78,11 @@ iU情報経営イノベーション専門職大学 客員教授（Sho T氏）の
 ### 7. 便利ツール (Utility)
 - **[NEW] PreviewWebsite.command**: ダブルクリックするだけでローカルサーバー(`npm run dev`)を起動するMac用実行ファイル。
 
+### 8. OGP実装
+- **画像生成**: OGP用画像(`ogp.png`)を作成し `public/` に配置。
+- **メタタグ実装**: `src/layouts/Layout.astro` に `og:image`, `og:url`, `twitter:card` を追加。
+- **URL解決**: `Astro.url` または `site` 設定を用いて絶対パスを出力するように構成。
+
 ## 検証計画
 ### 自動ビルドチェック
 - `npm run build` がエラーなく完了すること。

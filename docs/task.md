@@ -58,3 +58,8 @@
 - [ ] Heroセクションのスタイリッシュ化 <!-- id: 25 -->
 - [ ] ActivityTimelineのデザイン刷新 <!-- id: 26 -->
 - [ ] Header/Footerのモダン化 (Glassmorphism) <!-- id: 27 -->
+
+### 7. OGP実装 (Social Media Optimizations)
+- [x] OGP画像の作成 (Sho T Lab. / 高橋 翔 / ...) <!-- id: 29 -->
+- [x] Layout.astroへのOGPタグ完全実装 (og:image, og:url, twitter:card) <!-- id: 30 -->
+- [x] 最終表示確認 <!-- id: 31 -->
